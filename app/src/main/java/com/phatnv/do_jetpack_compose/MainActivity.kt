@@ -5,10 +5,15 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -17,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.layout.layout
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.TextStyle
@@ -46,6 +52,20 @@ class MainActivity : ComponentActivity() {
         }
     }
 }
+
+// Made the following modifier using Modifier.layout
+fun Modifier.badgeLayout() = layout { measurable, constraints ->
+    val placeable = measurable.measure(constraints)
+
+    // based on the expectation of only one line of text
+    val minPadding = placeable.height / 4
+
+    val with = maxOf(placeable.width + minPadding, placeable.height)
+    layout(with, placeable.height) {
+        placeable.place((with - placeable.width) / 2, 0)
+    }
+}
+
 
 fun Context.showToast(message: String, length: Int = Toast.LENGTH_LONG) {
     Toast.makeText(this, message, length).show()
@@ -84,7 +104,7 @@ fun TextExample() {
         ), modifier = Modifier.clickable {
             // By default:
             // Toast.makeText(context, "Hello World!", Toast.LENGTH_SHORT).show();
-            context.showToast("Hello World!");
+            context.showToast("Hello World!")
         })
         // Text Overflow
         Text(
@@ -118,7 +138,30 @@ fun TextExample() {
                 append("orld")
             }
         )
+        // Layout measure
+        // convenience API of creating a custom LayoutModifier modifier, without having to create
+        // a class or an object that implements the LayoutModifier interface.
+        Row(modifier = Modifier.padding(all = 10.dp)) {
+            TextMeasure("1")
+            Spacer(modifier = Modifier.size(10.dp))
+            TextMeasure("10")
+            Spacer(modifier = Modifier.size(10.dp))
+            TextMeasure("100")
+            Spacer(modifier = Modifier.size(10.dp))
+            TextMeasure("1000")
+        }
     }
+}
+
+@Composable
+fun TextMeasure(text: String) {
+    Text(
+        text,
+        modifier = Modifier
+            .background(MaterialTheme.colorScheme.error, shape = CircleShape)
+            .badgeLayout(),
+        color = Color.White
+    )
 }
 
 @Composable
