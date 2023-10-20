@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">do-jetpack-compose</string>
+    <string name="hello_world">Xin chào Thế Giới</string>
 </resources>
