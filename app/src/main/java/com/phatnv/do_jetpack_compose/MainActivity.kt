@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentHeight
@@ -293,7 +294,8 @@ fun TextExample() {
                     width = 1.dp,
                     color = Color.Red,
                     shape = RoundedCornerShape(5.dp),
-                ).padding(10.dp)
+                )
+                .padding(10.dp)
         ) {
             Text(buildString {
                 repeat(20) {
@@ -303,6 +305,11 @@ fun TextExample() {
             }, letterSpacing = 4.sp, onTextLayout = { layoutResult.value = it })
             Spacer(modifier = Modifier.size(10.dp))
             // Paragraph (ParagraphStyle)
+            val reusableModifier = Modifier
+                .fillMaxWidth()
+                .background(Color.Red)
+                .padding(vertical = 12.dp)
+                .offset(x = 20.dp)
             Text(buildAnnotatedString {
                 withStyle(style = ParagraphStyle(lineHeight = 30.sp)) {
                     withStyle(style = SpanStyle(color = Color.Blue)) {
@@ -310,14 +317,14 @@ fun TextExample() {
                     }
                     withStyle(
                         style = SpanStyle(
-                            fontWeight = FontWeight.Bold, color = Color.Red
+                            fontWeight = FontWeight.Bold, color = Color.White
                         )
                     ) {
                         append("World\n")
                     }
                     append("Compose")
                 }
-            })
+            }, modifier = Modifier.then(reusableModifier.clickable {  }))
         }
 
     }
