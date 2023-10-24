@@ -1,4 +1,4 @@
-package com.phatnv.do_jetpack_compose.ui.theme
+package com.phatnv.do_jetpack_compose.theme
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -6,7 +6,6 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.remember
 
 object AppTheme {
-
     val colors: AppColors
         @Composable
         @ReadOnlyComposable

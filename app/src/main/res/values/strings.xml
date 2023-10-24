@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Android Compose</string>
+    <string name="home_screen">Home</string>
+    <string name="product_screen">Product</string>
+    <string name="about_screen">About</string>
+    <string name="internet_connect">Internet connection is available.</string>
+    <string name="internet_loss">No internet connection.</string>
 </resources>

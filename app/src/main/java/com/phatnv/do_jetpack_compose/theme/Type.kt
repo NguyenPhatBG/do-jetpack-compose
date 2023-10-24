@@ -1,4 +1,4 @@
-package com.phatnv.do_jetpack_compose.ui.theme
+package com.phatnv.do_jetpack_compose.theme
 
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.runtime.staticCompositionLocalOf

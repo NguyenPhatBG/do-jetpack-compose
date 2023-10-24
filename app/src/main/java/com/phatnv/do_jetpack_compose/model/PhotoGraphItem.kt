@@ -1,4 +1,4 @@
-package com.phatnv.do_jetpack_compose.models
+package com.phatnv.do_jetpack_compose.model
 
 data class PhotographItem(
     val description: String,
