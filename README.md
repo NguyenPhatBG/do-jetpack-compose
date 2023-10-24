@@ -1,4 +1,3 @@
-/**
  * Khái niệm cơ bản trong Kotlin:
  *  1. Biến (Variable): Một biến là một vùng bộ nhớ được đặt tên để lưu trữ và thay đổi giá trị.
  *  Trong Kotlin, bạn có thể khai báo biến bằng từ khóa var.
@@ -21,9 +20,7 @@
  *  - Khai báo MutableList có thể thay đổi (Mutable List) => Để khai báo một danh sách có thể thay đổi, bạn có thể sử dụng kiểu MutableList<T>,
  *  trong đó T là kiểu dữ liệu của các phần tử trong danh sách.
  *  VD: val names: MutableList<String> = mutableListOf("John", "Jane", "Alice")
- */
 
-/**
  * 1. "Internal" là một từ khóa trong Kotlin được sử dụng để khai báo một thành phần (ví dụ: lớp, phương thức hoặc thuộc tính) có phạm vi truy cập nội bộ trong cùng một module.
  *   Khi một thành phần được khai báo là "internal", nó chỉ có thể truy cập được từ các thành phần khác trong cùng một module, nhưng không thể truy cập từ bên ngoài module đó.
  *   Ví dụ, nếu bạn khai báo một lớp là "internal class MyClass" trong một module Kotlin, thì lớp này chỉ có thể truy cập được bởi các thành phần khác trong cùng module đó.
@@ -72,4 +69,3 @@
  *     - Trong trường hợp này, chỉ có constructor của lớp Person mới có thể đặt giá trị cho name.
  *       Các thành phần khác trong và ngoài lớp Person chỉ có thể đọc giá trị của name mà không thể thay đổi nó.
  *
- */
