@@ -53,7 +53,8 @@
   5. "private set" là một cách để định nghĩa một thuộc tính (property) chỉ có thể được đặt giá trị bên trong cùng một lớp hoặc đối tượng trong Kotlin. <br/>
       - Khi một thuộc tính được khai báo với private set, nghĩa là bạn chỉ có thể gán giá trị cho thuộc tính đó từ bên trong cùng một lớp hoặc đối tượng. <br/>
         Bên ngoài lớp hoặc đối tượng đó, thuộc tính sẽ không thể được gán giá trị. <br/>
-        Ví dụ, xem xét lớp Person trong Kotlin: <br/>
+        Ví dụ, xem xét lớp Person trong Kotlin: <br/><br/>
+        
         class Person {
             var name: String
                 private set
@@ -62,6 +63,7 @@
                 this.name = name
             }
          }
+        
       - Trong ví dụ trên, thuộc tính name của lớp Person được khai báo với private set. <br/>
         Điều này có nghĩa là bạn chỉ có thể gán giá trị cho name từ bên trong lớp Person, nhưng không thể từ bên ngoài. Ví dụ: <br/>
         val person = Person("John") <br/>
