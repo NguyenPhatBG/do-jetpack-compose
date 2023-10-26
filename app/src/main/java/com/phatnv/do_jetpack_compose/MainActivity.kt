@@ -63,6 +63,7 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background
                 ) {
+                    // https://semicolonspace.com/android-compose-button-corner-style/
                     ButtonExample()
                 }
             }
