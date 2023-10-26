@@ -23,6 +23,11 @@ class MainActivity : ComponentActivity(), NetworkChangeReceiver.OnNetworkChangeL
         networkChangeReceiver = NetworkChangeReceiver()
         networkChangeReceiver.onNetworkChangeListener = this
 
+        /**
+         * Trong Kotlin, "::" không phải là từ khóa, mà là toán tử phân giải phạm vi còn được gọi
+         * là toán tử "double colon". Nó được sử dụng để truy cập thành viên hoặc hàm của một lớp
+         * hoặc đối tượng.
+         */
         connectivityManager = getSystemService(ConnectivityManager::class.java)
         connectivityManager.registerDefaultNetworkCallback(networkCallback)
         setContent {
