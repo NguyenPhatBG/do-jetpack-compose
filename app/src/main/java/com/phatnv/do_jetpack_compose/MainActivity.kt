@@ -71,7 +71,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = false)
+@Preview(showBackground = true, backgroundColor = 0xFFFFFFFF, locale = "fr-rFR")
 @Composable
 fun ButtonExample() {
     Column(
@@ -128,6 +128,7 @@ fun ButtonExample() {
         ProgressButtonExample(
             loading = loading,
             onClick = { loading = !loading },
+
         )
         // How to set drawable as a background to image in jetpack compose?
         Box {
@@ -171,7 +172,7 @@ fun ProgressButtonExample(loading: Boolean, onClick: () -> Unit, enabled: Boolea
                 .height(46.dp)
                 .align(Alignment.Center),
         ) {
-            Text(text = "Refresh", color = Color.White)
+            Text(text = "Login", color = Color.White)
         }
     }
 }
