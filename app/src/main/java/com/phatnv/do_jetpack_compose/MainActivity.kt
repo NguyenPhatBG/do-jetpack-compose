@@ -163,6 +163,7 @@ fun TextExample() {
      * https://dmytroshuba.com/blog/complete-guide-to-rich-text-in-jetpack-compose/
      * https://developer.android.com/jetpack/compose/text?hl=vi
      * https://developer.android.com/jetpack/compose/text/display-text
+     * 5 Simple Text Animations in Jetpack Compose (https://semicolonspace.com/jetpack-compose-text-animations/)
      * */
     val layoutResult = remember {
         mutableStateOf<TextLayoutResult?>(null)
