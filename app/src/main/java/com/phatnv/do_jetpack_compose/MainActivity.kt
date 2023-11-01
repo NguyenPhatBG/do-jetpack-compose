@@ -17,6 +17,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -28,8 +29,10 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
@@ -48,6 +51,7 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
@@ -325,8 +329,35 @@ fun TextExample() {
                     }
                     append("Compose")
                 }
-            }, modifier = Modifier.then(reusableModifier.clickable {  }))
+            }, modifier = Modifier.then(reusableModifier.clickable { }))
         }
-
+        // See more
+        var seeMore by remember { mutableStateOf(true) }
+        Text(
+            text = stringResource(R.string.detail_placeholder),
+            style = MaterialTheme.typography.bodyMedium,
+            color = MaterialTheme.colorScheme.primary,
+            maxLines = if (seeMore) 4 else Int.MAX_VALUE,
+            overflow = TextOverflow.Ellipsis,
+            modifier = Modifier.padding(horizontal = 24.dp)
+        )
+        val textButton = if (seeMore) {
+            stringResource(id = R.string.see_more)
+        } else {
+            stringResource(id = R.string.see_less)
+        }
+        Text(
+            text = textButton,
+            style = MaterialTheme.typography.labelLarge,
+            textAlign = TextAlign.Center,
+            color = MaterialTheme.colorScheme.onSurface,
+            modifier = Modifier
+                .heightIn(20.dp)
+                .fillMaxWidth()
+                .padding(top = 15.dp)
+                .clickable {
+                    seeMore = !seeMore
+                }
+        )
     }
 }
