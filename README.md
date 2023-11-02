@@ -70,4 +70,7 @@
         person.name = "Jane" // Không hợp lệ, không thể gán giá trị từ bên ngoài <br/>
       - Trong trường hợp này, chỉ có constructor của lớp Person mới có thể đặt giá trị cho name. <br/>
         Các thành phần khác trong và ngoài lớp Person chỉ có thể đọc giá trị của name mà không thể thay đổi nó. <br/>
+
+    6. SHA1 - Debug
+    https://stackoverflow.com/questions/30070264/get-sha1-fingerprint-certificate-in-android-studio-for-google-maps
  
